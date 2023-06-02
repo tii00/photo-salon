@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Photo_salonModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Клиент">
+          <Key>
+            <PropertyRef Name="Код_клиента" />
+          </Key>
+          <Property Name="Код_клиента" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фамилия" Type="nvarchar(max)" />
+          <Property Name="Имя" Type="nvarchar(max)" />
+          <Property Name="Отчество" Type="nvarchar(max)" />
+          <Property Name="Возраст" Type="int" />
+          <Property Name="Телефон" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Услуга">
+          <Key>
+            <PropertyRef Name="Код_услуги" />
+          </Key>
+          <Property Name="Код_услуги" Type="int" Nullable="false" />
+          <Property Name="Наименование_услуги" Type="nvarchar(max)" />
+          <Property Name="Описание" Type="nvarchar(max)" />
+          <Property Name="Цена" Type="int" />
+        </EntityType>
+        <EntityType Name="Фотограф">
+          <Key>
+            <PropertyRef Name="Код_фотографа" />
+          </Key>
+          <Property Name="Код_фотографа" Type="int" Nullable="false" />
+          <Property Name="Фамилия" Type="nvarchar(max)" />
+          <Property Name="Имя" Type="nvarchar(max)" />
+          <Property Name="Отчество" Type="nvarchar(max)" />
+          <Property Name="Стаж" Type="nvarchar(max)" />
+          <Property Name="Опыт_работы" Type="nvarchar(max)" />
+          <Property Name="Телефон" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="Хранилище Photo_salonModelContainer">
+          <EntitySet Name="Клиент" EntityType="Self.Клиент" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Услуга" EntityType="Self.Услуга" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Фотограф" EntityType="Self.Фотограф" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Photo_salonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Клиент">
+          <Key>
+            <PropertyRef Name="Код_клиента" />
+          </Key>
+          <Property Name="Код_клиента" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фамилия" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Возраст" Type="Int32" />
+          <Property Name="Телефон" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Услуга">
+          <Key>
+            <PropertyRef Name="Код_услуги" />
+          </Key>
+          <Property Name="Код_услуги" Type="Int32" Nullable="false" />
+          <Property Name="Наименование_услуги" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Описание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Цена" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Фотограф">
+          <Key>
+            <PropertyRef Name="Код_фотографа" />
+          </Key>
+          <Property Name="Код_фотографа" Type="Int32" Nullable="false" />
+          <Property Name="Фамилия" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Стаж" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Опыт_работы" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Телефон" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Photo_salonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Клиент" EntityType="Self.Клиент" />
+          <EntitySet Name="Услуга" EntityType="Self.Услуга" />
+          <EntitySet Name="Фотограф" EntityType="Self.Фотограф" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Photo_salonModelContainer" CdmEntityContainer="Photo_salonEntities">
+          <EntitySetMapping Name="Клиент">
+            <EntityTypeMapping TypeName="Photo_salonModel.Клиент">
+              <MappingFragment StoreEntitySet="Клиент">
+                <ScalarProperty Name="Код_клиента" ColumnName="Код_клиента" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Возраст" ColumnName="Возраст" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Услуга">
+            <EntityTypeMapping TypeName="Photo_salonModel.Услуга">
+              <MappingFragment StoreEntitySet="Услуга">
+                <ScalarProperty Name="Код_услуги" ColumnName="Код_услуги" />
+                <ScalarProperty Name="Наименование_услуги" ColumnName="Наименование_услуги" />
+                <ScalarProperty Name="Описание" ColumnName="Описание" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Фотограф">
+            <EntityTypeMapping TypeName="Photo_salonModel.Фотограф">
+              <MappingFragment StoreEntitySet="Фотограф">
+                <ScalarProperty Name="Код_фотографа" ColumnName="Код_фотографа" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="Стаж" ColumnName="Стаж" />
+                <ScalarProperty Name="Опыт_работы" ColumnName="Опыт_работы" />
+                <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
